@@ -1,0 +1,62 @@
+@startuml
+!theme plain
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+
+title Class Diagram
+
+class SmartBinController {
+  - THRESHOLD_CM : int
+  - RECYCLABLE_CLASSES : list
+  --
+  + main_loop()
+  + classify_image()
+}
+
+class RecycleServo {
+  - pin : GPIO 17
+  - pwm : GPIO.PWM
+  --
+  + open()
+  + close()
+}
+
+class TrashServo {
+  - pin : GPIO 22
+  - pwm : GPIO.PWM
+  --
+  + open()
+  + close()
+}
+
+class UltrasonicSensor {
+  - trigger : GPIO 23
+  - echo : GPIO 24
+  --
+  + distance() : float
+}
+
+class PiCamera {
+  - resolution : 640x480
+  - format : RGB888
+  --
+  + capture_array()
+  + stop()
+}
+
+class WasteClassifier {
+  - model : keras.Model
+  - class_map : dict
+  --
+  + predict() : (label, conf)
+}
+
+SmartBinController --> UltrasonicSensor
+SmartBinController --> PiCamera
+SmartBinController --> WasteClassifier
+SmartBinController --> RecycleServo
+SmartBinController --> TrashServo
+
+@enduml

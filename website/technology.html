@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="The technology behind Recycla — MobileNetV2 transfer learning, Raspberry Pi 4, Arducam vision, and real-time waste classification." />
+    <title>Technology — Recycla</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- ======== NAVBAR ======== -->
+    <nav class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="/" class="nav__brand">
+          <img src="/logo.png" alt="Recycla" class="nav__logo" />
+          <span class="nav__wordmark">Recycla</span>
+        </a>
+        <div class="nav__links" id="navLinks">
+          <a href="/">Home</a>
+          <a href="/technology.html">Technology</a>
+          <a href="/vision.html">Vision</a>
+          <a href="/team.html">Team</a>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ======== PAGE HERO ======== -->
+    <header class="page-hero">
+      <div class="container">
+        <span class="label">Technology</span>
+        <h1 class="page-hero__title">Built to see, think, and sort.</h1>
+        <p class="page-hero__subtitle">
+          Every component in Recycla was chosen for a reason. From the neural network architecture to the servo motors, here is the full technical breakdown of a system designed to classify waste in under 200 milliseconds on a $35 computer.
+        </p>
+      </div>
+    </header>
+
+    <!-- ======== AI / MODEL ======== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Classification Engine</span>
+          <h2 class="heading-2">MobileNetV2 with Transfer Learning</h2>
+        </div>
+
+        <div class="split">
+          <div>
+            <p class="body-large">
+              Pre-trained on 1.2 million images by Google, then fine-tuned on our custom waste dataset. The model classifies six material categories: cardboard, glass, metal, paper, plastic, and general trash.
+            </p>
+            <p class="body-large">
+              MobileNetV2 was chosen for its depthwise separable convolutions, which reduce computation by 8-9x compared to standard convolutions while maintaining classification accuracy. This makes it ideal for inference on resource-constrained hardware.
+            </p>
+          </div>
+          <div class="spec-grid reveal">
+            <div class="spec-item">
+              <span class="spec-item__label">Architecture</span>
+              <span class="spec-item__value">MobileNetV2</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__label">Input Size</span>
+              <span class="spec-item__value">224 x 224px</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__label">Categories</span>
+              <span class="spec-item__value">6 classes</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__label">Format</span>
+              <span class="spec-item__value">TFLite INT8</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__label">Inference</span>
+              <span class="spec-item__value">&lt;200ms</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-item__label">Training</span>
+              <span class="spec-item__value">Transfer learning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== HARDWARE STACK ======== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="label label--light">Hardware</span>
+          <h2 class="heading-2 heading-2--light">Purpose-built from the ground up.</h2>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card reveal">
+            <span class="tech-card__tag">Compute</span>
+            <h3>Raspberry Pi 4</h3>
+            <p>4GB RAM, quad-core ARM Cortex-A72. Runs TFLite inference, controls GPIO for sensors and actuators, and manages the full classification pipeline. Chosen for its balance of processing power, GPIO accessibility, and cost-effectiveness.</p>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__tag">Vision</span>
+            <h3>Arducam 8MP V2.3</h3>
+            <p>Sony IMX219 sensor. Captures sharp images across varying lighting conditions for reliable classification of glossy, matte, and transparent surfaces. The CSI interface provides low-latency image transfer directly to the Pi's GPU.</p>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__tag">Sensing</span>
+            <h3>HC-SR04 Ultrasonic</h3>
+            <p>Detects object presence within 30cm to trigger the classification pipeline. Low power consumption allows continuous standby monitoring. Dual transducer design provides reliable distance measurement with 3mm precision.</p>
+          </div>
+
+          <div class="tech-card reveal">
+            <span class="tech-card__tag">Actuation</span>
+            <h3>Dual SG90 Servos</h3>
+            <p>Independent servo control for recycling and garbage compartment lids. 180-degree rotation, 1.8kg/cm torque. Responsive enough for real-time sorting, reliable enough for thousands of cycles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== DATA AUGMENTATION ======== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="split">
+          <div>
+            <span class="label">Training Pipeline</span>
+            <h2 class="heading-2">Built for real-world conditions.</h2>
+          </div>
+          <div>
+            <p class="body-large">
+              Our training pipeline uses aggressive data augmentation to ensure the model performs outside of clean lab conditions.
+            </p>
+            <div class="augmentation-list reveal">
+              <div class="augmentation-item">
+                <h4>Brightness & Contrast</h4>
+                <p>Random shifts simulate fluorescent, natural, and low-light conditions found across campus buildings.</p>
+              </div>
+              <div class="augmentation-item">
+                <h4>Geometric Transforms</h4>
+                <p>Rotation, flips, and zoom account for varied item orientations as waste is dropped into the bin.</p>
+              </div>
+              <div class="augmentation-item">
+                <h4>Color Temperature</h4>
+                <p>Channel shifts handle the difference between warm indoor lighting and cool outdoor daylight.</p>
+              </div>
+              <div class="augmentation-item">
+                <h4>Surface Handling</h4>
+                <p>Specular highlight training addresses glossy packaging surfaces that can confuse standard classifiers.</p>
+              </div>
+            </div>
+            <p class="body-large" style="margin-top: 24px;">
+              The dataset is designed to grow. Adding new training data is as simple as dropping photos into the dataset folder and retraining.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <img src="/logo.png" alt="Recycla" class="footer__logo" />
+            <span class="footer__wordmark">Recycla</span>
+          </div>
+          <div class="footer__columns">
+            <div class="footer__col">
+              <h4>Project</h4>
+              <a href="/">Home</a>
+              <a href="/technology.html">Technology</a>
+              <a href="/vision.html">Vision</a>
+            </div>
+            <div class="footer__col">
+              <h4>Team</h4>
+              <a href="/team.html#leadership">Leadership</a>
+              <a href="/team.html#software">Software</a>
+              <a href="/team.html#ml">Machine Learning</a>
+              <a href="/team.html#hardware">Hardware</a>
+            </div>
+            <div class="footer__col">
+              <h4>University</h4>
+              <a href="https://www.ubc.ca" target="_blank" rel="noopener">UBC</a>
+              <a href="https://ece.ubc.ca" target="_blank" rel="noopener">UBC ECE</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>&copy; 2026 Recycla &mdash; University of British Columbia. Built with purpose.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>

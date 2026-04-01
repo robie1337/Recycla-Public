@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype ortho
+
+title Component Diagram
+
+package "Google Colab" {
+  [AI_Model.ipynb] as NB
+  [MobileNetV2] as MV2
+  database "Dataset" as DS
+}
+
+package "Raspberry Pi 4" {
+  [smart_bin.py] as APP
+  [TensorFlow] as TF
+  [RPi.GPIO] as GPIO
+  [picamera2] as PIC
+  [gpiozero] as GZ
+}
+
+package "Hardware" {
+  [Arducam 8MP] as CAM
+  [HC-SR04] as US
+  [Recycle Servo - GPIO 17] as RS
+  [Trash Servo - GPIO 22] as TS
+}
+
+DS --> NB
+MV2 --> NB
+NB ..> TF : exports model
+
+APP --> TF
+APP --> GPIO
+APP --> PIC
+APP --> GZ
+
+PIC --> CAM
+GZ --> US
+GPIO --> RS
+GPIO --> TS
+
+@enduml

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meet the team behind Recycla — four UBC engineering students building AI-powered waste sorting." />
+    <title>Team — Recycla</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- ======== NAVBAR ======== -->
+    <nav class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="/" class="nav__brand">
+          <img src="/logo.png" alt="Recycla" class="nav__logo" />
+          <span class="nav__wordmark">Recycla</span>
+        </a>
+        <div class="nav__links" id="navLinks">
+          <a href="/">Home</a>
+          <a href="/technology.html">Technology</a>
+          <a href="/vision.html">Vision</a>
+          <a href="/team.html">Team</a>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ======== PAGE HERO ======== -->
+    <header class="page-hero">
+      <div class="container">
+        <span class="label">The Team</span>
+        <h1 class="page-hero__title">The people behind <em>Recycla.</em></h1>
+        <p class="page-hero__subtitle">
+          Four UBC engineering students who believed campus recycling could be better — and built the technology to prove it.
+        </p>
+      </div>
+    </header>
+
+    <!-- ======== TEAM TAB SECTION ======== -->
+    <section class="section section--light">
+      <div class="container">
+        <!-- Tab Navigation -->
+        <div class="team-tabs">
+          <button class="team-tab active" data-tab="leadership">Leadership</button>
+          <button class="team-tab" data-tab="software">Software</button>
+          <button class="team-tab" data-tab="ml">Machine Learning</button>
+          <button class="team-tab" data-tab="hardware">Hardware</button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="team-panels">
+
+          <!-- LEADERSHIP — Adam Hassan -->
+          <div class="team-panel active" id="panel-leadership">
+            <div class="profile">
+              <div class="profile__photo-wrap">
+                <img src="/team/adam.jpg" alt="Adam Hassan" class="profile__photo" />
+              </div>
+              <div class="profile__info">
+                <span class="label">Leadership</span>
+                <h3 class="profile__name">Adam Hassan</h3>
+                <p class="profile__role">Team Lead & Head of Marketing</p>
+                <div class="profile__work">
+                  <h4>Project Contributions</h4>
+                  <ul>
+                    <li>Led the team across all project phases, coordinating between hardware, software, and ML workstreams to deliver a fully integrated system</li>
+                    <li>Defined the overall project scope, timeline, and deliverables for the Recycla smart bin system</li>
+                    <li>Developed the go-to-market strategy and brand positioning for presentation to stakeholders and the university</li>
+                    <li>Managed all stakeholder communications, progress reporting, and milestone tracking throughout the development cycle</li>
+                    <li>Oversaw the creation of all marketing materials, pitch decks, and the promotional website content</li>
+                    <li>Drove cross-functional integration to ensure hardware, software, and ML components worked together seamlessly into a cohesive product</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOFTWARE — Zivan Erdevicki -->
+          <div class="team-panel" id="panel-software">
+            <div class="profile">
+              <div class="profile__photo-wrap">
+                <img src="/team/zivan.jpg" alt="Zivan Erdevicki" class="profile__photo" />
+              </div>
+              <div class="profile__info">
+                <span class="label">Software Design & Development</span>
+                <h3 class="profile__name">Zivan Erdevicki</h3>
+                <p class="profile__role">Head of Software Design & Development</p>
+                <div class="profile__work">
+                  <h4>Project Contributions</h4>
+                  <ul>
+                    <li>Designed and built the complete software pipeline from image capture through waste classification to physical sorting output</li>
+                    <li>Developed the Python-based inference engine that loads and executes the TFLite model on the Raspberry Pi 4</li>
+                    <li>Implemented the GPIO control logic that translates classification results into precise servo motor actuation signals</li>
+                    <li>Built the sensor integration layer that connects the ultrasonic trigger event to the camera capture and inference sequence</li>
+                    <li>Created the user interface and LED status display system that provides real-time visual feedback on classification results</li>
+                    <li>Designed and developed this website, handling all front-end architecture, UI/UX design, and visual implementation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MACHINE LEARNING — Bassam Alghamdi -->
+          <div class="team-panel" id="panel-ml">
+            <div class="profile">
+              <div class="profile__photo-wrap">
+                <img src="/team/bassam.jpg" alt="Bassam Alghamdi" class="profile__photo" />
+              </div>
+              <div class="profile__info">
+                <span class="label">Machine Learning & Integration</span>
+                <h3 class="profile__name">Bassam Alghamdi</h3>
+                <p class="profile__role">Head of Machine Learning & Integration</p>
+                <div class="profile__work">
+                  <h4>Project Contributions</h4>
+                  <ul>
+                    <li>Selected MobileNetV2 as the base architecture and implemented transfer learning from ImageNet pre-trained weights</li>
+                    <li>Curated, cleaned, and organized the training dataset across six waste categories: cardboard, glass, metal, paper, plastic, and general trash</li>
+                    <li>Designed the data augmentation pipeline with brightness, contrast, rotation, flip, zoom, and channel shift transforms for real-world robustness</li>
+                    <li>Trained, validated, and iteratively optimized the model to achieve reliable classification accuracy across all material types</li>
+                    <li>Quantized the Keras model to TFLite INT8 format, reducing model size and enabling efficient edge inference on the Raspberry Pi 4</li>
+                    <li>Implemented confidence thresholding logic that defaults uncertain classifications to garbage, preventing recycling contamination</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- HARDWARE — Mahmoud Rabie -->
+          <div class="team-panel" id="panel-hardware">
+            <div class="profile">
+              <div class="profile__photo-wrap">
+                <img src="/team/mahmoud.jpg" alt="Mahmoud Rabie" class="profile__photo" />
+              </div>
+              <div class="profile__info">
+                <span class="label">Hardware & Integration</span>
+                <h3 class="profile__name">Mahmoud Rabie</h3>
+                <p class="profile__role">Head of Hardware & Integration</p>
+                <div class="profile__work">
+                  <h4>Project Contributions</h4>
+                  <ul>
+                    <li>Designed and fabricated the complete physical smart bin enclosure with dual sorting compartments and integrated electronics bay</li>
+                    <li>Integrated the Raspberry Pi 4, Arducam 8MP camera, and HC-SR04 ultrasonic sensor into a unified, reliable hardware platform</li>
+                    <li>Wired, calibrated, and tested dual SG90 servo motors for consistent, reliable lid actuation under repeated use</li>
+                    <li>Designed the LED lighting array that provides consistent illumination for image capture regardless of ambient conditions</li>
+                    <li>Handled all circuit design, soldering, cable management, and physical assembly of the prototype from raw components</li>
+                    <li>Ensured seamless hardware-software integration, resolving GPIO conflicts, power distribution, and timing issues across the full classification pipeline</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== CTA ======== -->
+    <section class="section section--green">
+      <div class="container cta-band">
+        <h2 class="heading-2 heading-2--light">See what we built together.</h2>
+        <div class="cta-band__actions">
+          <a href="/technology.html" class="btn btn--white">Explore the technology</a>
+          <a href="/vision.html" class="btn btn--outline-white">Our vision</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <img src="/logo.png" alt="Recycla" class="footer__logo" />
+            <span class="footer__wordmark">Recycla</span>
+          </div>
+          <div class="footer__columns">
+            <div class="footer__col">
+              <h4>Project</h4>
+              <a href="/">Home</a>
+              <a href="/technology.html">Technology</a>
+              <a href="/vision.html">Vision</a>
+            </div>
+            <div class="footer__col">
+              <h4>Team</h4>
+              <a href="/team.html#leadership">Leadership</a>
+              <a href="/team.html#software">Software</a>
+              <a href="/team.html#ml">Machine Learning</a>
+              <a href="/team.html#hardware">Hardware</a>
+            </div>
+            <div class="footer__col">
+              <h4>University</h4>
+              <a href="https://www.ubc.ca" target="_blank" rel="noopener">UBC</a>
+              <a href="https://ece.ubc.ca" target="_blank" rel="noopener">UBC ECE</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>&copy; 2026 Recycla &mdash; University of British Columbia. Built with purpose.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/team.js"></script>
+  </body>
+</html>

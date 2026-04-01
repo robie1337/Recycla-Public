@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Our vision for the future of campus waste infrastructure — concept renders and the impact Recycla could have at scale." />
+    <title>Vision — Recycla</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- ======== NAVBAR ======== -->
+    <nav class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="/" class="nav__brand">
+          <img src="/logo.png" alt="Recycla" class="nav__logo" />
+          <span class="nav__wordmark">Recycla</span>
+        </a>
+        <div class="nav__links" id="navLinks">
+          <a href="/">Home</a>
+          <a href="/technology.html">Technology</a>
+          <a href="/vision.html">Vision</a>
+          <a href="/team.html">Team</a>
+        </div>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ======== PAGE HERO ======== -->
+    <header class="page-hero">
+      <div class="container">
+        <span class="label">Vision</span>
+        <h1 class="page-hero__title">Imagining the future of campus waste.</h1>
+        <p class="page-hero__subtitle">
+          Recycla started as a capstone project. But the problem it solves — contaminated recycling, wasted resources, and confused sorting — exists at every university, office, and public space. Here is what the future could look like.
+        </p>
+      </div>
+    </header>
+
+    <!-- ======== CONCEPT GALLERY ======== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Concept Renders</span>
+          <h2 class="heading-2">What smart waste infrastructure could look like.</h2>
+          <p class="body-large body-large--centered">
+            These renders explore how Recycla's technology might integrate into real campus environments at scale.
+          </p>
+        </div>
+
+        <div class="concept-gallery">
+          <figure class="concept-card reveal">
+            <img src="/hero-product.png" alt="Smart bin concept render" />
+            <figcaption>Smart bin concept: integrated camera, LED status, minimal form factor</figcaption>
+          </figure>
+          <figure class="concept-card reveal">
+            <img src="/ai-vision.png" alt="Computer vision analysis render" />
+            <figcaption>Computer vision analysis: identifying material type in real time</figcaption>
+          </figure>
+          <figure class="concept-card reveal">
+            <img src="/campus.png" alt="Campus-wide deployment concept" />
+            <figcaption>Campus-wide deployment: networked bins across UBC grounds</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== AT SCALE ======== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="split">
+          <div>
+            <span class="label label--light">At Scale</span>
+            <h2 class="heading-2 heading-2--light">Beyond a single bin.</h2>
+          </div>
+          <div>
+            <p class="body-large" style="color: rgba(255,255,255,0.7);">
+              A single Recycla unit handles one waste stream. But the real impact comes from deployment at scale. Imagine every recycling station on campus equipped with a smart bin — each one feeding classification data back to a central dashboard.
+            </p>
+            <p class="body-large" style="color: rgba(255,255,255,0.7);">
+              Facilities managers could see real-time contamination rates by building. The model could be retrained on campus-specific waste patterns. New categories — compost, e-waste, hazardous materials — could be added without changing hardware.
+            </p>
+            <p class="body-large" style="color: rgba(255,255,255,0.7);">
+              The system is designed to be modular, affordable, and maintainable. A Raspberry Pi 4, a camera, two servos, and an ultrasonic sensor. The total bill of materials is under $80. That makes campus-wide deployment not just possible, but practical.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FUTURE CAPABILITIES ======== -->
+    <section class="section section--light">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">Roadmap</span>
+          <h2 class="heading-2">What comes next.</h2>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-card reveal">
+            <span class="roadmap-card__number">01</span>
+            <h3>Multi-stream sorting</h3>
+            <p>Expand from two compartments (recycling / garbage) to four: recycling, compost, garbage, and e-waste. Each requiring only one additional servo per stream.</p>
+          </div>
+          <div class="roadmap-card reveal">
+            <span class="roadmap-card__number">02</span>
+            <h3>Cloud analytics dashboard</h3>
+            <p>Real-time monitoring of classification accuracy, contamination rates, and waste volumes by location. Data that facilities teams can actually use.</p>
+          </div>
+          <div class="roadmap-card reveal">
+            <span class="roadmap-card__number">03</span>
+            <h3>Continuous learning</h3>
+            <p>On-device feedback loop where misclassified items are flagged and automatically added to the training dataset for the next model update.</p>
+          </div>
+          <div class="roadmap-card reveal">
+            <span class="roadmap-card__number">04</span>
+            <h3>Campus-wide mesh</h3>
+            <p>Networked bins communicating via Wi-Fi, sharing classification models and waste data across a unified campus waste management system.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== CTA ======== -->
+    <section class="section section--green">
+      <div class="container cta-band">
+        <h2 class="heading-2 heading-2--light">Want to know how it works?</h2>
+        <div class="cta-band__actions">
+          <a href="/technology.html" class="btn btn--white">Explore the technology</a>
+          <a href="/team.html" class="btn btn--outline-white">Meet the team</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__brand">
+            <img src="/logo.png" alt="Recycla" class="footer__logo" />
+            <span class="footer__wordmark">Recycla</span>
+          </div>
+          <div class="footer__columns">
+            <div class="footer__col">
+              <h4>Project</h4>
+              <a href="/">Home</a>
+              <a href="/technology.html">Technology</a>
+              <a href="/vision.html">Vision</a>
+            </div>
+            <div class="footer__col">
+              <h4>Team</h4>
+              <a href="/team.html#leadership">Leadership</a>
+              <a href="/team.html#software">Software</a>
+              <a href="/team.html#ml">Machine Learning</a>
+              <a href="/team.html#hardware">Hardware</a>
+            </div>
+            <div class="footer__col">
+              <h4>University</h4>
+              <a href="https://www.ubc.ca" target="_blank" rel="noopener">UBC</a>
+              <a href="https://ece.ubc.ca" target="_blank" rel="noopener">UBC ECE</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>&copy; 2026 Recycla &mdash; University of British Columbia. Built with purpose.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/page.js"></script>
+  </body>
+</html>
